@@ -1,0 +1,11 @@
+# data processing
+pandas
+
+# orchestration
+prefect
+
+# testing
+pytest
+
+# code quality
+flake8
