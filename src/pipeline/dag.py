@@ -65,5 +65,5 @@ def run(d_config):
         drug_clinical_matches=drug_clinical_matches, drug_pubmed_matches=drug_pubmed_matches
     )
     task_load_matches(
-        aggregated_matches=aggregated_matches, file_output_path=d_config.file_output_path,
+        aggregated_matches=aggregated_matches, file_output_path=d_config.path_to_output_matching,
     )
