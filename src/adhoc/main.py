@@ -2,6 +2,7 @@ import json
 import logging
 from collections import defaultdict
 from typing import Dict, Optional
+import argparse
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
@@ -61,3 +62,9 @@ def get_journal_with_most_drug_mentions(matches_path: str) -> Optional[Dict[str,
         logging.error(f"Error: Failed to parse JSON file. More details here: {e}")
     except Exception as e:
         logging.error(f"An unexpected error occurred. More details here: {e}")
+
+if __name__=="__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("matches_path", type=str, help="Path to the matches file")
+    args = parser.parse_args()
+    get_journal_with_most_drug_mentions(args.matches_path)

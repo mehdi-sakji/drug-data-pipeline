@@ -2,7 +2,7 @@ from prefect import flow, task
 from src.pipeline.task import *
 from src.config.deploy_config import DeployConfig
 
-@flow(name='dag')
+@flow(name='drug_data_dag')
 def main_flow(d_config: DeployConfig):
     """
     Prefect workflow to orchestrate the entire drug-publication matching pipeline.
