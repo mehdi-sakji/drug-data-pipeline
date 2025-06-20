@@ -1,5 +1,7 @@
 from prefect import flow, task
-from src.pipeline.task import *
+from src.pipeline.task import task_extract_drugs, task_extract_pubmed, task_extract_clinical_trials,\
+    task_clean_drugs, task_clean_merge_pubmed, task_clean_clinical, task_matching_drug_pubmed,\
+    task_matching_drug_clinical, task_aggregating_matches, task_load_matches
 from src.config.deploy_config import DeployConfig
 
 @flow(name='drug_data_dag')
@@ -40,8 +42,8 @@ def run(d_config):
     :return: None
     """
 
-    df_drugs = task_extract_clinical_trials(
-        path_to_clinical_trials=d_config.path_to_drugs
+    df_drugs = task_extract_drugs(
+        path_to_drugs=d_config.path_to_drugs
     )
     df_pubmed_json, df_pubmed_csv = task_extract_pubmed(
         path_to_pubmed_csv=d_config.path_to_pubmed_csv,
